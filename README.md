@@ -32,10 +32,9 @@
 
 Disclaimers: I'm on a Mac. Mileage may vary
 
-
 [serverless.com](serverless.com)
 
-Visit serverless for comprehensive steps. I'm going to assume some basic pre-requisites, such as nodejs for this demo. 
+Visit serverless for comprehensive steps. I'm going to assume some basic pre-requisites, such as nodejs for this demo.
 
 1. Install serverless
     ```bash
@@ -71,9 +70,14 @@ Quick Review of the serverless.yml file
     - [Additional Information](https://serverless.com/blog/serverless-workaround-cloudformation-200-resource-limit/)
 4. "I have a requirements.txt file with my python. I might also want a different one per python. Also, I might be hitting the 10mb limit on my lambdas, preventing me from viewing my code in the console when I want to debug."
     - [serverless-python-requirements](https://www.npmjs.com/package/serverless-python-requirements)
-6. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
-`SLS_DEBUG=true` and run again
-5. I want to 
+
+5. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
+    `SLS_DEBUG=true` and run again
+
+6. Authorizer!
+    - Controls access to routes
+    - Caches for 5 minutes
+    - Allows you to pass values through to your lambda
 
 ## What's Missing? Additional Topics
 
@@ -93,8 +97,3 @@ Occasionally you'll have a problem where Serverless does not give a useful error
 export SLS_DEBUG="*"
 export AWSJS_DEBUG="*"
 ```
-
-### Paths to Explore
-- Serverless offline: This Serverless plugin emulates AWS λ and API Gateway on your local machine to speed up your development cycles
-    https://github.com/dherault/serverless-offline
-- 
