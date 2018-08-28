@@ -32,7 +32,6 @@
 
 Disclaimers: I'm on a Mac. Mileage may vary
 
-
 [serverless.com](serverless.com)
 
 Visit serverless for comprehensive steps. I'm going to assume some basic pre-requisites, such as nodejs for this demo. 
@@ -71,9 +70,9 @@ Quick Review of the serverless.yml file
     - [Additional Information](https://serverless.com/blog/serverless-workaround-cloudformation-200-resource-limit/)
 4. "I have a requirements.txt file with my python. I might also want a different one per python. Also, I might be hitting the 10mb limit on my lambdas, preventing me from viewing my code in the console when I want to debug."
     - [serverless-python-requirements](https://www.npmjs.com/package/serverless-python-requirements)
-6. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
+5. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
 `SLS_DEBUG=true` and run again
-5. I want to 
+6. Authorizer!
 
 ## What's Missing? Additional Topics
 

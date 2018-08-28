@@ -1,0 +1,30 @@
+service: tech-talk-serverless-plugins
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-plugin-split-stacks
+  - serverless-python-requirements
+custom:
+  splitStacks:
+    perFunction: false
+    perType: true
+  stage: ${opt:stage, 'dev'}
+provider:
+  name: aws
+  runtime: python3.6
+  stage: ${opt:stage, 'dev'}
+  environment: 
+    SLS_DEBUG: true
+    cors: "*"
+
+functions:
+  hello:
+    handler: src/libraries.lambda_handler
+
+  take2:
+    handler: src/libraries.lambda_handler
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action: "s3:ListAllMyBuckets"
+        Resource: "*"    
+    
