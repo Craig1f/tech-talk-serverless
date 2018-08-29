@@ -5,6 +5,7 @@
 ### What Problem Do We Want to Solve
 
 - [ ] Writing Lambda Functions
+  - Arbitrary code
 - [ ] Code locally, deploy easily
   - [ ] Maintaining our code in Git/Source Control
   - [ ] Stay out of console (except to debug)
@@ -55,10 +56,14 @@ Visit serverless for comprehensive steps. I'm going to assume some basic pre-req
 
 Quick Review of the serverless.yml file
 
+## Advanced Examples: Plugins
+
+    Run through the second deployment
+
 ## Takeaways/Review/Cheat Sheet
 
 1. A typical stack will use:
-    - EC2/SSM/Param Store
+    - EC2->SSM->Param Store
     - API Gateway
     - Lambda (Python, Node, etc)
     - Backend (RDS, Dynamo, etc)
@@ -74,26 +79,12 @@ Quick Review of the serverless.yml file
 5. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
     `SLS_DEBUG=true` and run again
 
-6. Authorizer!
+6. "My functions are timing out!"
+    - One-line adjustment to add a timeout by seconds. 6 is default
+
+7. Authorizer
     - Controls access to routes
     - Caches for 5 minutes
     - Allows you to pass values through to your lambda
 
-## What's Missing? Additional Topics
-
-### Testing
-
-We have not choosen a testing framework and cannot recommend one.
-
-Serverless has a few suggestions on how to do testing. Most of the examples tend to use NodeJS. Additionally, with an Angular frontend, it is probably a reasonable strategy to use Jasmine to test the Lambdas as well, but again, I haven't tried it.
-
-If anyone else has a recommendation, please share it or consider a future Tech Talk on the subject.
-
-### Debugging
-
-Occasionally you'll have a problem where Serverless does not give a useful error. For us, this was when SSM variables were not defined. SLS has a debug mode by doing the following:
-
-```bash
-export SLS_DEBUG="*"
-export AWSJS_DEBUG="*"
-```
+## Questions
