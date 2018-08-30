@@ -53,6 +53,10 @@ Visit serverless for comprehensive steps. I'm going to assume some basic pre-req
     ```bash
     sls invoke local -f hello
     ```
+5. Targetting Update (lambda-only)
+    ```bash
+    sls deploy -v function -f functionNameInServerlessYml
+    ```
 
 Quick Review of the serverless.yml file
 
