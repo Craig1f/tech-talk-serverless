@@ -60,7 +60,7 @@ Quick Review of the serverless.yml file
 
     Run through the second deployment
 
-## Takeaways/Review/Cheat Sheet
+## Traps/Lessons Learned/Takeaways/Cheat Sheet
 
 1. A typical stack will use:
     - EC2->SSM->Param Store
@@ -76,13 +76,18 @@ Quick Review of the serverless.yml file
 4. "I have a requirements.txt file with my python. I might also want a different one per python. Also, I might be hitting the 10mb limit on my lambdas, preventing me from viewing my code in the console when I want to debug."
     - [serverless-python-requirements](https://www.npmjs.com/package/serverless-python-requirements)
 
-5. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
+5. "I'm still hitting my 10mb limit. In fact, my package has ballooned to maybe 100s of MBs!"
+    - Don't forget to use package/exclude! Examples in 2_advanced/serverless.yml.
+    - Inspect your final zip package by going directly to s3 and downloading the zip.
+    - Use example from today on Stark, where a python virtual environment was accidentally included because it was placed in a subfolder that was not excluded, balooning to 120mb zipped.
+
+6. `Serverless Error ---------------------------------------` shows up with no additional information! What gives?
     `SLS_DEBUG=true` and run again
 
-6. "My functions are timing out!"
+7. "My functions are timing out!"
     - One-line adjustment to add a timeout by seconds. 6 is default
 
-7. Authorizer
+8. Authorizer
     - Controls access to routes
     - Caches for 5 minutes
     - Allows you to pass values through to your lambda

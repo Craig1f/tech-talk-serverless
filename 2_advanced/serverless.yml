@@ -16,7 +16,15 @@ provider:
   environment: 
     SLS_DEBUG: true
     cors: "*"
-
+package:
+  exclude:
+    - node_modules/**
+    - package-lock.json
+    - package.json
+    - README.md
+    - env/**
+    - venv/**
+    - src/lambdas/test/**
 functions:
   hello:
     handler: src/libraries.lambda_handler
